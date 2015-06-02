@@ -22,7 +22,7 @@ public class BinaryTree<E> {
 	 * @return o novo nó;
 	 * @author matheuscastro
 	 */
-	private NodeTree<E> createNode(E element){
+	public NodeTree<E> createNode(E element){
 		return new NodeTree<E>(element);
 	}
 	
@@ -34,7 +34,7 @@ public class BinaryTree<E> {
 	 * @return
 	 * @author matheuscastro;
 	 */
-	private NodeTree<E> createNode(E element, NodeTree<E> left, NodeTree<E> right){
+	public NodeTree<E> createNode(E element, NodeTree<E> left, NodeTree<E> right){
 		return new NodeTree<E>(element,left,right);
 	}
 	

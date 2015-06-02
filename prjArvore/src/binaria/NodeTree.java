@@ -12,6 +12,8 @@ public class NodeTree<E> {
 	
 	public NodeTree(E element){
 		this.setElement(element);
+		this.setLeft(null);
+		this.setRight(null);
 	}
 
 	public NodeTree(E element, NodeTree<E> left, NodeTree<E> right){
