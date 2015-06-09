@@ -1,19 +1,15 @@
-package binaria;
+package binary.search;
 
-public class NodeTree<E> {
+public class NodeTree<E>{
 
 	private E element;
 	private NodeTree<E> left;
 	private NodeTree<E> right;
 	
-	public NodeTree(){
-		super();
-	}
+	public NodeTree(){}
 	
 	public NodeTree(E element){
 		this.setElement(element);
-		this.setLeft(null);
-		this.setRight(null);
 	}
 
 	public NodeTree(E element, NodeTree<E> left, NodeTree<E> right){
@@ -46,9 +42,13 @@ public class NodeTree<E> {
 		this.right = right;
 	}
 
+	public boolean isLeaf(){
+		return this.left == null && this.right == null;
+	}
+	
 	@Override
 	public String toString() {
 		return "NodeTree [" + element + "]";
 	}
-	
+
 }
