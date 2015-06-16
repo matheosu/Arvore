@@ -1,5 +1,7 @@
 package binary.search;
 
+import binary.search.exception.BinaryTreeException;
+
 public class BinarySearchTree<E extends Comparable<? super E>> {
 
 	private NodeTree<E> root;
@@ -34,11 +36,45 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 		} 
 	}
 	
+	public void remove(E element){
+		
+	}
+	
+	public NodeTree<E> findNodeByElement(E element) {
+		NodeTree<E> elementFound = findNodeByElement(element, this.root);
+		
+		if(elementFound == null)
+			throw new BinaryTreeException("Elemento ("+ element +") Não pertence a árvore!");
+		
+		return elementFound;
+		
+	}
+	
+	private NodeTree<E> findNodeByElement(E element, NodeTree<E> root){
+		if (root == null || root.getElement() == null || element == null)
+			return null;
+
+		if (element.compareTo(root.getElement()) == 0) { // achou
+			return root;
+		} else if (root.isLeaf()) { // o cara é folha
+			return null;
+		} else if (element.compareTo(root.getElement()) < 0) { // procura do lado esquerdo
+			return findNodeByElement(element, root.getLeft());
+		} else if (element.compareTo(root.getElement()) > 0) { // procura do lado direito
+			return findNodeByElement(element, root.getRight());
+		}
+		return null;
+	}
+	
 	public boolean isEmpty(){
 		return this.root == null;
 	}
 	
-	public boolean containElement(E element, NodeTree<E> node){
+	public boolean contain(E element){
+		return containElement(element, this.root);
+	}
+	
+	private boolean containElement(E element, NodeTree<E> node){
 		if(node == null)
 			return false;
 		
@@ -67,10 +103,6 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 			postOrderPrint(node.getRight());
 			System.out.print(node + " - ");
 		}
-	}
-	
-	public NodeTree<E> getRoot() {
-		return root;
 	}
 
 	@Override

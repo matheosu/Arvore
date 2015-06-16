@@ -13,9 +13,7 @@ public class Main {
 		arvore.add("H");
 		arvore.add("I");
 		
-		arvore.preOrderPrint(arvore.getRoot());
-		arvore.postOrderPrint(arvore.getRoot());
-		arvore.inOrderPrint(arvore.getRoot());
+		System.out.println(arvore.findNodeByElement("J"));
 	}
 
 }
